@@ -11,7 +11,7 @@ setUpZShell() {
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
     git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
     git clone https://github.com/GeoLMg/apt-zsh-plugin.git $ZSH_CUSTOM/plugins/apt
-    mv ./.zshrc ~/.zshrc
+    cp ./.zshrc ~/.zshrc
 
     source "$ZSH/oh-my-zsh.sh"
 
@@ -67,13 +67,13 @@ setUpFzf() {
 }
 
 main() {
-    setUpZShell
+    setUpDust
 
-    # setUpDust
-
-    # setUpBat
+    setUpBat
 
     setUpFzf
+
+    # setUpZShell
 }
 
 main "$@"
