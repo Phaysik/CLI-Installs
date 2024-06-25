@@ -75,7 +75,7 @@ main() {
 
     setUpFzf
 
-    # setUpZShell
+    setUpZShell
 }
 
 main "$@"
