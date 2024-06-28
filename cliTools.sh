@@ -28,6 +28,8 @@ setUpDust() {
     else
         curl https://sh.rustup.rs -sSf | sh -s -- -y
 
+        source $HOME/.cargo/env
+
         # Download the latest version of Tracy
         url=$(curl -s https://api.github.com/repos/bootandy/dust/releases/latest | grep -o '"tarball_url": *"[^"]*"' | cut -d '"' -f 4)
         curl -L -o dust-latest.tar.gz $url
@@ -36,7 +38,6 @@ setUpDust() {
         sudo rm -rf dust-latest.tar.gz
         cd dust-latest
 
-        source $HOME/.cargo/env
         cargo install du-dust
 
         cd ..
@@ -54,7 +55,9 @@ setUpBat() {
         mkdir -p ~/.local/bin
         ln -s /usr/bin/batcat ~/.local/bin/bat
 
-        mv ./bat-config /home/phaysik/.config/bat/config
+        sudo mkdir -p /home/phaysik/.config/bat/
+
+        sudo mv ./bat-config /home/phaysik/.config/bat/config
     fi
 }
 
@@ -69,9 +72,9 @@ setUpFzf() {
 main() {
     setUpZShell
 
-    # setUpDust
+    setUpDust
 
-    # setUpBat
+    setUpBat
 
     setUpFzf
 }
