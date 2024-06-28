@@ -22,6 +22,12 @@ setUpZShell() {
     echo "After that run p10k configure"
 
     exec zsh
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+
+    source ~/.zshrc
+
+    nvm install --lts
 }
 
 setUpDust() {
