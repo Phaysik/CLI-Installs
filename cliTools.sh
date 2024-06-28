@@ -3,6 +3,8 @@ setUpZShell() {
     sudo chsh -s $(which zsh)
     touch ~/.zshrc
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -11,7 +13,7 @@ setUpZShell() {
     git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
     git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
     git clone https://github.com/GeoLMg/apt-zsh-plugin.git $ZSH_CUSTOM/plugins/apt
-    mv ./.zshrc ~/.zshrc
+    cp ./.zshrc ~/.zshrc
 
     source "$ZSH/oh-my-zsh.sh"
 
@@ -70,13 +72,13 @@ setUpFzf() {
 }
 
 main() {
-    setUpZShell
-
     setUpDust
 
     setUpBat
 
     setUpFzf
+
+    setUpZShell
 }
 
 main "$@"
