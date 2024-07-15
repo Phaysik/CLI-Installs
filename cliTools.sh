@@ -34,11 +34,9 @@ setUpDust() {
     if [ -x "$(command -v dust)" ]; then
         echo "dust exists"
     else
-        curl https://sh.rustup.rs -sSf | sh -s -- -y
+        sudo apt-get install cargo
 
-        source $HOME/.cargo/env
-
-        # Download the latest version of Tracy
+        # Download the latest version of Dust
         url=$(curl -s https://api.github.com/repos/bootandy/dust/releases/latest | grep -o '"tarball_url": *"[^"]*"' | cut -d '"' -f 4)
         curl -L -o dust-latest.tar.gz $url
         mkdir -p dust-latest
