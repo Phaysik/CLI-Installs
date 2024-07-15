@@ -77,7 +77,15 @@ setUpFzf() {
     fi
 }
 
+setUpAct() {
+    curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash
+    sudo mv bin/act /usr/bin/act
+    rm -rf bin
+}
+
 main() {
+    setUpAct
+
     setUpDust
 
     setUpBat
