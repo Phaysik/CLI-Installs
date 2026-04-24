@@ -109,6 +109,8 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 alias ls='ls --color'
 alias cat='bat'
+alias dcu='sudo docker compose up -d'
+alias dcd='sudo docker compose down'
 
 bindkey '${terminfo[kcuu1]}' history-search-backward
 bindkey '${terminfo[kcud1]}' history-search-forward
@@ -125,3 +127,13 @@ alias fuck='fix'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# pnpm
+export PNPM_HOME="/home/phaysik/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+source ~/vulkansdk/default/setup-env.sh
