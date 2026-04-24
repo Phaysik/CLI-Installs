@@ -78,7 +78,9 @@ main() {
 
     setUpZShell
 
-    sudo apt-get install ripgrep -y
+    echo "deb [arch=$(dpkg --print-architecture) trusted=yes] https://eugene-babichenko.github.io/fixit/ppa ./" | sudo tee /etc/apt/sources.list.d/fixit.list > /dev/null
+    sudo apt update
+    sudo apt-get install ripgrep fixit -y
 }
 
 main "$@"
