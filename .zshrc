@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 PATH=$HOME/.local/bin:$PATH
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf fzf-tab z you-should-use zsh-bat apt)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fzf fzf-tab z aliases alias-finder docker docker-compose git-commit git-lfs themes)
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
@@ -100,6 +100,12 @@ zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
 alias ls='ls --color'
 alias cat='bat'
@@ -109,6 +115,13 @@ bindkey '${terminfo[kcud1]}' history-search-forward
 source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init zsh --cmd cd)"
+eval "$(fixit init zsh)"
+
+alias fuck='fix'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -30,25 +30,17 @@ setUpZShell() {
     nvm install --lts
 }
 
-setUpDust() {
+setUpCargoPackages() {
     if [ -x "$(command -v dust)" ]; then
         echo "dust exists"
     else
-        sudo apt-get install cargo
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
-        # Download the latest version of Dust
-        url=$(curl -s https://api.github.com/repos/bootandy/dust/releases/latest | grep -o '"tarball_url": *"[^"]*"' | cut -d '"' -f 4)
-        curl -L -o dust-latest.tar.gz $url
-        mkdir -p dust-latest
-        tar -xvzf dust-latest.tar.gz -C dust-latest --strip-components=1
-        sudo rm -rf dust-latest.tar.gz
-        cd dust-latest
+        . "$HOME/.cargo/env"
 
-        cargo install du-dust
+        cargo install dust
 
-        cd ..
-
-        rm -rf dust-latest
+        sudo cp /root/.cargo/bin/dust /usr/bin/dust
     fi
 }
 
@@ -64,6 +56,8 @@ setUpBat() {
         sudo mkdir -p /home/phaysik/.config/bat/
 
         sudo mv ./bat-config /home/phaysik/.config/bat/config
+
+        sudo cp /root/.local/bin/bat /usr/bin/bat
     fi
 }
 
@@ -76,13 +70,15 @@ setUpFzf() {
 }
 
 main() {
-    setUpDust
+    setUpCargoPackages
 
     setUpBat
 
     setUpFzf
 
     setUpZShell
+
+    sudo apt-get install ripgrep -y
 }
 
 main "$@"
