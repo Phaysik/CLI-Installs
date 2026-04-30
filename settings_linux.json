@@ -1,0 +1,149 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+	"agent": {
+		"default_model": {
+			"provider": "copilot_chat",
+			"model": "gpt-5-mini",
+			"enable_thinking": true,
+			"effort": "high"
+		},
+		"favorite_models": [],
+		"model_parameters": []
+	},
+	"cli_default_open_behavior": "existing_window",
+	"icon_theme": {
+		"mode": "dark",
+		"light": "Zed (Default)",
+		"dark": "VSCode Icons for Zed (Dark)"
+	},
+	"terminal": {
+		"env": {},
+		"font_family": "Fira Code",
+		"cursor_shape": "bar",
+		"blinking": "on",
+		"font_size": 16,
+		"line_height": "comfortable",
+		"shell": {
+			"with_arguments": {
+				"program": "/usr/bin/zsh",
+				"args": []
+			}
+		}
+	},
+	"project_panel": {
+		"dock": "left"
+	},
+	"outline_panel": {
+		"dock": "right",
+		"git_status": true
+	},
+	"tabs": {
+		"git_status": true,
+		"file_icons": true
+	},
+	"multi_cursor_modifier": "alt",
+	"sticky_scroll": {
+		"enabled": true
+	},
+	"cursor_blink": true,
+	"autosave": {
+		"after_delay": {
+			"milliseconds": 1000
+		}
+	},
+	"buffer_font_family": "Fira Code",
+	"buffer_font_features": {
+		"calt": true
+	},
+	"colorize_brackets": true,
+	"auto_indent_on_paste": true,
+	"linked_edits": true,
+	"show_edit_predictions": true,
+	"soft_wrap": "editor_width",
+	"tab_size": 4,
+	"base_keymap": "VSCode",
+	"file_types": {
+		"cpp": [
+			"string_view",
+			"array",
+			"atomic",
+			"bit",
+			"string_view",
+			"array",
+			"atomic",
+			"bit",
+			"string_view",
+			"array",
+			"atomic",
+			"bit"
+		],
+		"tailwindcss": ["*.css", "*.css", "*.css"],
+		"dotenv": [".env*", ".env*", ".env*", ".env*", ".env*"],
+		"Dockerfile": ["Dockerfile*"]
+	},
+	"ui_font_size": 16,
+	"buffer_font_size": 16,
+	"theme": {
+		"mode": "dark",
+		"light": "Ayu Light",
+		"dark": "Aurora X"
+	},
+	"lsp": {
+		"clangd": {
+			"binary": {
+				"arguments": ["--compile-commands-dir=.vscode", "--clang-tidy"]
+			}
+		}
+	},
+	"agent_ui_font_size": 20,
+	"auto_install_extensions": {
+		"dockerfile": true,
+		"make": true,
+		"vscode-icons": true,
+		"docker-compose": true,
+		"env": true,
+		"comment": true,
+		"slang": true,
+		"scss": true
+	},
+	"auto_signature_help": true,
+	"show_signature_help_after_edits": true,
+	"code_lens": "on",
+	"minimap": {
+		"show": "always"
+	},
+	"diagnostics": {
+		"inline": {
+			"enabled": true
+		}
+	},
+	"git": {
+		"inline_blame": {
+			"delay_ms": 500,
+			"show_commit_summary": true
+		},
+		"branch_picker": {
+			"show_author_name": true
+		}
+	},
+	"indent_guides": {
+		"coloring": "indent_aware"
+	},
+	"pane_split_direction_horizontal": "down",
+	"pane_split_direction_vertical": "right",
+	"preferred_line_length": 200,
+	"git_panel": {
+		"dock": "left",
+		"sort_by_path": true
+	},
+	"ui_font_features": {
+		"calt": true
+	}
+}

@@ -69,6 +69,26 @@ setUpFzf() {
     fi
 }
 
+setUpZed() {
+    if [ -x "$(command -v zed)" ]; then
+        echo "zed exists"
+    else
+        curl -f https://zed.dev/install.sh | sh
+    fi
+
+    sudo mkdir -p ~/.config/zed/
+    sudo mkdir -p ~/.config/zed/themes/
+
+    echo "Setting up linux Zed settings"
+    sudo cp ./Aurora\ X.json ~/.config/zed/themes
+    sudo cp ./settings_linux.json ~/.config/zed/settings.json
+
+    echo "Setting up windows Zed settings"
+    sudo cp ./Aurora\ X.json /mnt/c/Users/"$1"/AppData/Roaming/Zed/themes
+    sudo cp ./settings_windows.json /mnt/c/Users/"$1"/AppData/Roaming/Zed/settings.json
+
+}
+
 main() {
     setUpCargoPackages
 
@@ -76,7 +96,9 @@ main() {
 
     setUpFzf
 
-    setUpZShell
+    setUpZed
+
+    setUpZShell "$1"
 
     echo "deb [arch=$(dpkg --print-architecture) trusted=yes] https://eugene-babichenko.github.io/fixit/ppa ./" | sudo tee /etc/apt/sources.list.d/fixit.list > /dev/null
     sudo apt update
