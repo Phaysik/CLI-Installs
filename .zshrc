@@ -120,6 +120,10 @@ eval "$(zoxide init zsh --cmd cd)"
 eval "$(fixit init zsh)"
 
 alias fuck='fix'
+alias bearrelease='bear -- make release -B'
+alias beardev='bear -- make dev -B'
+alias beartests='bear -- make build_tests -B'
+alias bearcoverage='bear -- make coverage -B'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
