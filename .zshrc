@@ -120,6 +120,7 @@ eval "$(zoxide init zsh --cmd cd)"
 eval "$(fixit init zsh)"
 
 alias fuck='fix'
+alias make='make -j$(nproc)'
 alias bearrelease='bear -- make release -B'
 alias beardev='bear -- make dev -B'
 alias beartests='bear -- make build_tests -B'
