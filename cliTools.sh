@@ -86,7 +86,6 @@ setUpZed() {
     echo "Setting up windows Zed settings"
     sudo cp ./Aurora\ X.json /mnt/c/Users/"$1"/AppData/Roaming/Zed/themes
     sudo cp ./settings_windows.json /mnt/c/Users/"$1"/AppData/Roaming/Zed/settings.json
-
 }
 
 main() {
