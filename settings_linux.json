@@ -7,6 +7,60 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+	"formatter": "language_server",
+	"format_on_save": "on",
+	"wsl_connections": [
+		{
+			"distro_name": "Ubuntu-24.04",
+			"user": null,
+			"projects": [
+				{
+					"paths": ["/home/phaysik/git/pocketcore"]
+				},
+				{
+					"paths": ["/home/phaysik/git/skyrim"]
+				},
+				{
+					"paths": ["/home/phaysik/git/skyrim/web"]
+				}
+			]
+		}
+	],
+	"languages": {
+		"JavaScript": {
+			"code_actions_on_format": {
+				"source.fixAll.eslint": true
+			},
+			"formatter": {
+				"external": {
+					"command": "pnpm",
+					"arguments": ["exec", "prettier", "--stdin-filepath", "{buffer_path}"]
+				}
+			}
+		},
+		"TypeScript": {
+			"code_actions_on_format": {
+				"source.fixAll.eslint": true
+			},
+			"formatter": {
+				"external": {
+					"command": "pnpm",
+					"arguments": ["exec", "prettier", "--stdin-filepath", "{buffer_path}"]
+				}
+			}
+		},
+		"TSX": {
+			"code_actions_on_format": {
+				"source.fixAll.eslint": true
+			},
+			"formatter": {
+				"external": {
+					"command": "pnpm",
+					"arguments": ["exec", "prettier", "--stdin-filepath", "{buffer_path}"]
+				}
+			}
+		}
+	},
 	"agent": {
 		"default_model": {
 			"provider": "copilot_chat",
@@ -32,8 +86,8 @@
 		"line_height": "comfortable",
 		"shell": {
 			"with_arguments": {
-				"program": "/usr/bin/zsh",
-				"args": []
+				"program": "C:/Program Files/Git/bin/bash.exe",
+				"args": ["--login", "-i"]
 			}
 		}
 	},
@@ -41,7 +95,7 @@
 		"dock": "left"
 	},
 	"outline_panel": {
-		"dock": "right",
+		"dock": "left",
 		"git_status": true
 	},
 	"tabs": {
@@ -100,7 +154,16 @@
 			"binary": {
 				"arguments": ["--compile-commands-dir=.vscode", "--clang-tidy"]
 			}
+		},
+		"eslint": {
+			"settings": {
+				"nodePath": "/home/phaysik/.nvm/versions/node/v24.9.0/bin/node"
+			}
 		}
+	},
+	"prettier": {
+		"node_path": "/home/phaysik/.nvm/versions/node/v24.9.0/bin/node",
+		"allowed": true
 	},
 	"agent_ui_font_size": 20,
 	"auto_install_extensions": {
